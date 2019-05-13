@@ -1,0 +1,5 @@
+*.o
+*.exe
+*.user
+unit-test-vs2017/x64
+unit-test-vs2017/.vs
