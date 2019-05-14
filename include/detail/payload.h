@@ -1,5 +1,4 @@
-#ifndef _PLINQ_DETAIL_PAYLOAD_H_
-#define _PLINQ_DETAIL_PAYLOAD_H_
+#pragma once
 
 #include <memory>
 #include <tuple>
@@ -7,6 +6,7 @@
 
 #include "type_list.h"
 
+namespace plinq::detail {
 struct unique_ptr_decorate_tag {
   template <class T>
   struct transform {
@@ -62,9 +62,11 @@ public:
       payload<raw_ptr_decorate_tag, TL> view;
       view.payloads_ = get_view_impl(std::make_index_sequence<TL::size_v>());
       return view;
-    } else if constexpr (std::is_same_v<Decorate, raw_ptr_decorate_tag>) {
+    }
+    else if constexpr (std::is_same_v<Decorate, raw_ptr_decorate_tag>) {
       return *this;
-    } else {
+    }
+    else {
       static_assert(false, "Unknown decorate tag");
     }
   }
@@ -87,4 +89,4 @@ struct actor_type_list {
   using type = typename Payload::tl::template indexed_transform_t<Payload::actor_of>;
 };
 
-#endif // _PLINQ_DETAIL_PAYLOAD_H_
+} // namespace plinq::detail

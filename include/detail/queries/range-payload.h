@@ -8,6 +8,7 @@
 #include "element-aggregator-payload.h"
 #include "query-tag.h"
 
+namespace plinq::detail {
 template <class IntType, class StepType>
 class range_payload : tag_manager<size_unchanged_tag> {
   static_assert(std::is_integral_v<IntType>, "Internal: IntType must be of integral type.");
@@ -83,3 +84,5 @@ private:
 
   std::atomic<IntType> ite_;
 };
+
+} // namespace plinq::detail

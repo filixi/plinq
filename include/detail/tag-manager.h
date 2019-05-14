@@ -1,9 +1,9 @@
-#ifndef _PLINQ_DETAIL_TAG_MANAGER_H_
-#define _PLINQ_DETAIL_TAG_MANAGER_H_
+#pragma once
 
 #include <tuple>
 #include <type_traits>
 
+namespace plinq::detail {
 template <class... tags>
 struct tag_manager {
   using tags_list = std::tuple<tags...>;
@@ -22,4 +22,4 @@ struct has_tag : has_tag_impl<typename T::tags_list, Tag> {};
 template <class T, class Tag>
 inline constexpr bool has_tag_v = has_tag<T, Tag>::value;
 
-#endif // _PLINQ_DETAIL_TAG_MANAGER_H_
+} // namespace plinq::detail

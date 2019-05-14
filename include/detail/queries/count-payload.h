@@ -7,6 +7,7 @@
 #include "element-aggregator-payload.h"
 #include "query-tag.h"
 
+namespace plinq::detail {
 struct count_payload {
   template <size_t idx, class Payload>
   class actor {
@@ -41,3 +42,5 @@ struct count_payload {
 
   std::atomic<size_t> count_{ 0 };
 };
+
+} // namespace plinq::detail

@@ -1,8 +1,8 @@
-#ifndef _PLINQ_DETAIL_TYPE_LIST_H_
-#define _PLINQ_DETAIL_TYPE_LIST_H_
+#pragma once
 
 #include <type_traits>
 
+namespace plinq::detail {
 template <class... Types>
 struct type_list;
 
@@ -83,4 +83,4 @@ struct type_list {
   using get_back_t = get_front_t<size_v - idx - 1>;
 };
 
-#endif // _PLINQ_DETAIL_TYPE_LIST_H_
+} // namespace plinq::detail

@@ -1,5 +1,4 @@
-#ifndef _PLINQ_DETAIL_THREAD_POOL_H_
-#define _PLINQ_DETAIL_THREAD_POOL_H_
+#pragma once
 
 #include <mutex>
 #include <thread>
@@ -9,6 +8,7 @@
 #include <atomic>
 #include <condition_variable>
 
+namespace plinq::detail {
 class thread_pool {
 public:
   thread_pool() {
@@ -76,7 +76,6 @@ private:
   std::atomic_bool terminate_{ false };
 };
 
-namespace detail {
 static std::shared_ptr<thread_pool> get_global_pool(bool enable_default_pool = true) {
   static std::once_flag flag;
   static std::shared_ptr<thread_pool> pool;
@@ -91,6 +90,4 @@ static std::shared_ptr<thread_pool> get_global_pool(bool enable_default_pool = t
   return pool;
 }
 
-} // namespace detail
-
-#endif // _PLINQ_DETAIL_THREAD_POOL_H_
+} // namespace plinq::detail

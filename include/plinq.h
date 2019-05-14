@@ -1,5 +1,4 @@
-#ifndef _PLINQ_PLINQ_H_
-#define _PLINQ_PLINQ_H_
+#pragma once
 
 #include <type_traits>
 #include <utility>
@@ -9,7 +8,7 @@
 #include "detail/utility.h"
 #include "detail/thread-pool.h"
 
-namespace detail {
+namespace plinq::detail {
 template <class Payload>
 class linq_impl {
 public:
@@ -114,8 +113,9 @@ static_assert(sizeof(linq_t_tag) == 1, "Internal: linq_t must be empty.");
 
 static_assert(std::is_trivially_constructible_v<linq_t>, "Internal: linq_t must be trivially constructible.");
 
-} // namespace detail
+} // namespace plinq::detail
 
+namespace plinq {
 inline detail::linq_t linq;
 
-#endif // _PLINQ_PLINQ_H_
+}

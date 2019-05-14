@@ -7,6 +7,7 @@
 #include "query-tag.h"
 #include "sequence-aggregator-payload.h"
 
+namespace plinq::detail {
 template <class Fn>
 struct select_payload : tag_manager<size_unchanged_tag> {
   template <class Callable>
@@ -47,3 +48,5 @@ struct select_payload : tag_manager<size_unchanged_tag> {
 
   Fn fn_;
 };
+
+} // namespace plinq::detail

@@ -1,5 +1,4 @@
-#ifndef _PLINQ_DETAIL_QUERIES_H_
-#define _PLINQ_DETAIL_QUERIES_H_
+#pragma once
 
 // payload
 //  Class and template with payload postfix is payload class/template.
@@ -41,5 +40,3 @@
 #include "queries/range-payload.h"
 #include "queries/select-payload.h"
 #include "queries/source-payload.h"
-
-#endif // _PLINQ_DETAIL_QUERIES_H_

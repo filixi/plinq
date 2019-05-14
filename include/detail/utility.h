@@ -1,8 +1,8 @@
-#ifndef _PLINQ_DETAIL_UTILITY_H_
-#define _PLINQ_DETAIL_UTILITY_H_
+#pragma once
 
 #include <memory>
 
+namespace plinq::detail {
 struct match_not_found {};
 
 template <class First, class... Rest>
@@ -42,4 +42,4 @@ inline constexpr bool is_payload_v = is_payload<T>::value;
 static_assert(is_payload_v<payload<void, void>>, "Internal: is_payload_v test failed.");
 static_assert(!is_payload_v<int>, "Internal: is_payload_v test failed.");
 
-#endif // _PLINQ_DETAIL_UTILITY_H_
+} // namespace plinq::detail

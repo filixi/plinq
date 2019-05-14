@@ -3,6 +3,7 @@
 #include "../utility.h"
 #include "query-tag.h"
 
+namespace plinq::detail {
 struct element_aggregator_payload {
   template <size_t, class Payload>
   struct actor {
@@ -26,3 +27,5 @@ struct element_aggregator_payload {
 
   };
 };
+
+} // namespace plinq::detail

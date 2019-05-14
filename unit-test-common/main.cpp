@@ -14,10 +14,10 @@ struct query {
 };
 
 void test_payload() {
-  using a = type_list<int, double>;
-  using b = type_list<int *>;
+  using a = plinq::detail::type_list<int, double>;
+  using b = plinq::detail::type_list<int *>;
 
-  auto d = empty_payload();
+  auto d = plinq::detail::empty_payload();
   auto x = std::move(d).push_back<query>();
   auto view = x.get_view();
 }
@@ -25,17 +25,17 @@ void test_payload() {
 int main()
 {
   std::vector<int> a{ 1, 2, 3 };
-  std::cout << linq(a).count() << std::endl;
+  std::cout << plinq::linq(a).count() << std::endl;
 
-  auto v = linq(a).select([](auto &v) { return v; }).apply();
+  auto v = plinq::linq(a).select([](auto &v) { return v; }).apply();
   std::cout << &a << std::endl;
-  std::cout << &linq(a).apply() << std::endl;
+  std::cout << &plinq::linq(a).apply() << std::endl;
 
   // Danger! vv is a dangling pointer.
-  auto vv = linq({ 1, 2, 3 }).apply();
+  auto vv = plinq::linq({ 1, 2, 3 }).apply();
   vv = nullptr;
 
-  auto vvv = linq(std::vector<int>(a)).apply();
+  auto vvv = plinq::linq(std::vector<int>(a)).apply();
   static_assert(std::is_same_v<decltype(vvv), std::vector<int>>);
 
   for (auto &x : vvv)

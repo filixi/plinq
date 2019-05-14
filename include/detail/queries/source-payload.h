@@ -2,6 +2,7 @@
 
 #include "query-tag.h"
 
+namespace plinq::detail {
 template <class SourceContainer>
 class source_payload : tag_manager<size_unchanged_tag> {
   using iterator_type = decltype(std::begin(std::declval<SourceContainer>()));
@@ -51,3 +52,5 @@ public:
 private:
   SourceContainer container_;
 };
+
+} // namespace plinq::detail

@@ -5,6 +5,7 @@
 #include "../utility.h"
 #include "query-tag.h"
 
+namespace plinq::detail {
 template <class T>
 struct sequence_aggregator_payload {
   template <size_t, class Payload>
@@ -32,3 +33,5 @@ struct sequence_aggregator_payload {
     std::vector<T> results_;
   };
 };
+
+} // namespace plinq::detail

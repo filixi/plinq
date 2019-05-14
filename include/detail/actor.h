@@ -1,15 +1,13 @@
-#ifndef _PLINQ_DETAIL_ACTOR_H_
-#define _PLINQ_DETAIL_ACTOR_H_
+#pragma once
 
 #include <atomic>
 
 #include "payload.h"
 #include "utility.h"
 
+namespace plinq::detail {
 template <size_t idx = 0>
 struct tuple_for_each {
-  
-
   template <class Tuple, class Fn>
   static void apply(Tuple &&t, Fn &&fn) {
     static_assert(idx < std::tuple_size_v<std::decay_t<Tuple>>, "Internal: tuple idx out of bound.");
@@ -23,7 +21,7 @@ struct tuple_for_each {
 template <class Payload>
 class actors {
 public:
-  using tl = typename ::actor_type_list<Payload>::type;
+  using tl = typename actor_type_list<Payload>::type;
 
   template <size_t idx = 0>
   using aggregator_type = typename tl::template get_back_t<idx>::aggregator_type;
@@ -61,7 +59,7 @@ private:
 
 template <class Payload>
 struct actor_output_type {
-  using tl = typename ::actor_type_list<Payload>::type;
+  using tl = typename actor_type_list<Payload>::type;
 
   template <size_t idx>
   using type = typename tl::template get_front_t<idx>::output_type;
@@ -103,8 +101,8 @@ public:
 
   decltype(auto) get_result() {
     return actor_.template get_back<0>().get_result(
-        actor_.template get_back<1>()
-      );
+      actor_.template get_back<1>()
+    );
   }
 
 private:
@@ -112,4 +110,4 @@ private:
   actors<Payload> actor_;
 };
 
-#endif // _PLINQ_DETAIL_ACTOR_H_
+} // namespace plinq::detail

@@ -11,6 +11,7 @@
 #include "../utility.h"
 #include "query-tag.h"
 
+namespace plinq::detail {
 class concurrent_range_scheduler_payload : tag_manager<size_unchanged_tag> {
 public:
   template <class>
@@ -65,3 +66,5 @@ public:
 private:
   std::shared_ptr<thread_pool> pool = detail::get_global_pool();
 };
+
+} // namespace plinq::detail

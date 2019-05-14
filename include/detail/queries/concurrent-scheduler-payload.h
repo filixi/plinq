@@ -14,6 +14,7 @@
 #include "query-tag.h"
 #include "sequence-aggregator-payload.h"
 
+namespace plinq::detail {
 class concurrent_scheduler_payload : tag_manager<size_unchanged_tag> {
 public:
   template <class InputType>
@@ -122,3 +123,5 @@ private:
   } sync_;
 
 };
+
+} // namespace plinq::detail
