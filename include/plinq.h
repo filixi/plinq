@@ -16,11 +16,10 @@ public:
 
   ~linq_impl() = default;
 
-  // TODO: append an aggregator_payload ?
   decltype(auto) apply() && {
     using aggregator_type = typename actors<Payload>::template aggregator_type<>;
 
-    // payload_ is moved to local, returning any reference to internal state of pyaload is fun! :)
+    // payload_ is moved to local, do not return any reference to internal state of payload_.
     auto aggregator_payload = std::move(payload_).template push_back<aggregator_type>();
     auto view = aggregator_payload.get_view();
 

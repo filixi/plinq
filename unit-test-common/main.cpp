@@ -22,6 +22,10 @@ void test_payload() {
   auto view = x.get_view();
 }
 
+// TODO: unit test
+// TODO: performance test
+// TODO: lazy evaluation
+// TODO: more queries
 int main()
 {
   std::vector<int> a{ 1, 2, 3 };

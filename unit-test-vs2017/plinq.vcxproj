@@ -52,6 +52,26 @@
   <ItemGroup>
     <ClCompile Include="../unit-test-common/main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\detail\actor.h" />
+    <ClInclude Include="..\include\detail\concurrentqueue.h" />
+    <ClInclude Include="..\include\detail\payload.h" />
+    <ClInclude Include="..\include\detail\queries.h" />
+    <ClInclude Include="..\include\detail\queries\concurrent-range-scheduler-payload.h" />
+    <ClInclude Include="..\include\detail\queries\concurrent-scheduler-payload.h" />
+    <ClInclude Include="..\include\detail\queries\count-payload.h" />
+    <ClInclude Include="..\include\detail\queries\element-aggregator-payload.h" />
+    <ClInclude Include="..\include\detail\queries\query-tag.h" />
+    <ClInclude Include="..\include\detail\queries\range-payload.h" />
+    <ClInclude Include="..\include\detail\queries\select-payload.h" />
+    <ClInclude Include="..\include\detail\queries\sequence-aggregator-payload.h" />
+    <ClInclude Include="..\include\detail\queries\source-payload.h" />
+    <ClInclude Include="..\include\detail\tag-manager.h" />
+    <ClInclude Include="..\include\detail\thread-pool.h" />
+    <ClInclude Include="..\include\detail\type_list.h" />
+    <ClInclude Include="..\include\detail\utility.h" />
+    <ClInclude Include="..\include\plinq.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
